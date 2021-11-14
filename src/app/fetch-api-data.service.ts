@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://fayes-flix.herokuapp.com/';
 const token = localStorage.getItem('token');
-const user = localStorage.getItem('user');
 
 @Injectable({
   providedIn: 'root'
@@ -40,14 +39,13 @@ export class FetchApiDataService {
         { Authorization: 'Bearer' + token, }
       )
     }).pipe(
-      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
 
   // get one movie
   getOneMovie(): Observable<any> {
-    return this.http.get(apiUrl + 'movies/:Title', {
+    return this.http.get(apiUrl + 'movies/:title', {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -59,7 +57,7 @@ export class FetchApiDataService {
 
   // get director
   getDirector(): Observable<any> {
-    return this.http.get(apiUrl + 'director/:Name', {
+    return this.http.get(apiUrl + 'movies/director/:Name', {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -71,7 +69,7 @@ export class FetchApiDataService {
 
   // get genre
   getGenre(): Observable<any> {
-    return this.http.get(apiUrl + 'genre/:Name', {
+    return this.http.get(apiUrl + '/movies/genre/:Name', {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -83,7 +81,7 @@ export class FetchApiDataService {
 
     // get user 
     getUser(): Observable<any> {
-      return this.http.get(apiUrl + `users/${user}`, {
+      return this.http.get(apiUrl + `users/:Username`, {
         headers: new HttpHeaders(
           { Authorization: 'Bearer' + token, }
         )
@@ -95,7 +93,7 @@ export class FetchApiDataService {
 
   // get favorite movies for a user
   getFavoriteMovies(): Observable<any> {
-    return this.http.get(apiUrl + `users/${user}/Movies`, {
+    return this.http.get(apiUrl + `users/:Username/Movies`, {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -107,7 +105,7 @@ export class FetchApiDataService {
 
   // add movie to user favorites
   addMovieToFavorites(_id: string): Observable<any> {
-    return this.http.post(apiUrl + `/users/${user}/Movies/${_id}`, _id, {
+    return this.http.post(apiUrl + `/users/:Username/Movies/${_id}`, _id, {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -119,7 +117,7 @@ export class FetchApiDataService {
 
   // delete movie from user favorites
   deleteMovieFromFavorites(_id: string): Observable<any> {
-    return this.http.get(apiUrl + `users/${user}/Movies/${_id}`, {
+    return this.http.get(apiUrl + `users/:Username/Movies/${_id}`, {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -131,7 +129,7 @@ export class FetchApiDataService {
 
   // edit user 
   editUser(userDetails: any): Observable<any> {
-    return this.http.post(apiUrl + `users/${user}`, userDetails, {
+    return this.http.post(apiUrl + `users/:Username`, userDetails, {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
@@ -143,7 +141,7 @@ export class FetchApiDataService {
 
   // delete user 
   deleteUser(): Observable<any> {
-    return this.http.delete(apiUrl + `users/${user}`, {
+    return this.http.delete(apiUrl + `users/:Username`, {
       headers: new HttpHeaders(
         { Authorization: 'Bearer' + token, }
       )
