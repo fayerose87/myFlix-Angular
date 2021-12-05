@@ -87,15 +87,15 @@ export class FetchApiDataService {
     // get user 
     getUser(): Observable<any> {
       const token = localStorage.getItem('token');
-      return this.http.get(apiUrl + `users/:Username`, {
-        headers: new HttpHeaders(
-          { Authorization: 'Bearer ' + token, }
-        )
-      }).pipe(
-        map(this.extractResponseData),
+    const username = localStorage.getItem('user');
+    return this.http.get(apiUrl + `users/${username}`, {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      })
+    }).pipe(map(this.extractResponseData),
         catchError(this.handleError)
-      );
-    }
+    );
+  }
 
   // get favorite movies for a user
   getFavoriteMovies(): Observable<any> {
