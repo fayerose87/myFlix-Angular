@@ -1,6 +1,19 @@
 # MyFlixAngularClient
 
+Using Angular, build the client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+
+## User Stories
+- As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.
+- As a user, I want to be able to create a profile so I can save data about my favorite movies.
+
+## Key Features
+- The app should display a welcome view where users will be able to either log in or register an account
+- Once authenticated, the user should now view all movies
+- Upon clicking on a particular movie, users will be taken to a single movie view, where additional movie details will be displayed. The single movie view will contain the following additional features:
+    - A button that when clicked takes a user to the director view, where details about the director of that particular movie will be displayed
+    - A button that when clicked takes a user to the genre view, where details about that particular genre of the movie will be displayed
 
 ## Development server
 
