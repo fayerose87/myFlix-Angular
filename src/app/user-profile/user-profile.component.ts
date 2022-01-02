@@ -12,6 +12,10 @@ import { EditProfileComponent } from "../edit-profile/edit-profile.component";
   styleUrls: ["./user-profile.component.scss"],
 })
 export class UserProfileComponent implements OnInit {
+
+  /**
+   * gets user details with input
+   */
   @Input() userData = { Username: "", Password: "", Email: "", Birthday: "" };
 
   user: any = {};
@@ -27,6 +31,9 @@ export class UserProfileComponent implements OnInit {
     this.getUser();
   }
 
+  /**
+   * gets user
+   */
   getUser(): void {
     const user = localStorage.getItem("user");
     this.fetchApiData.getUser().subscribe((res: any) => {
@@ -34,6 +41,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * deregisters user
+   */
   deleteUser(): void {
     if (
       confirm(
@@ -59,6 +69,10 @@ export class UserProfileComponent implements OnInit {
     return formatDate(birthday, "MM/dd/YYYY", "en-US");
   }
 
+  
+  /**
+   * Opens dialog to update user info
+   */
   openEditProfileDialog(): void {
     this.dialog.open(EditProfileComponent, {
       width: "280px",
