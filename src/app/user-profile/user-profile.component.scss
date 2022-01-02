@@ -1,0 +1,35 @@
+.profile-wrapper {
+	background-color: black;
+	background-image: url("../../assets/background2.png");
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 60px;
+	align-content: center;
+	text-align: center;
+}
+
+a {
+	color: #1e81b0;
+	font-size: 12px;
+	cursor: pointer;
+	&:hover {
+		color: #249ad2;
+	}
+}
+
+h1 {
+	color: #1e81b0;
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+}
+
+.edit-btn {
+	background-color: #1e81b0;
+	&:hover {
+		background-color: #249ad2;
+	}
+}

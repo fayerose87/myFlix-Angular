@@ -1,10 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from "@angular/core";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { formatDate } from "@angular/common";
 
 @Component({
-  selector: 'app-director-view',
-  templateUrl: './director-view.component.html',
-  styleUrls: ['./director-view.component.scss']
+  selector: "app-director-view",
+  templateUrl: "./director-view.component.html",
+  styleUrls: ["./director-view.component.scss"],
 })
 // export class DirectorViewComponent implements OnInit {
 export class DirectorViewComponent {
@@ -13,10 +14,15 @@ export class DirectorViewComponent {
     public data: {
       name: string;
       bio: string;
-      birthyear: string;
+      directorImage: any;
+      birth: string;
+      birthplace: string;
     }
-    ) { }
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
+  formatDate(birth: string) {
+    return formatDate(birth, "yyyy", "en-US");
+  }
 }

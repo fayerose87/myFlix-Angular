@@ -1,4 +1,13 @@
-<div>
-  <h1>{{data.name}}</h1>
-  <mat-card-content> {{data.bio}} </mat-card-content>
+<div class="director-wrapper">
+  <mat-card>
+      <button class="close" mat-button color="dark" [mat-dialog-close]="true">
+          <mat-icon class="close">close</mat-icon>
+      </button>
+      <mat-card-title>{{data.name}}</mat-card-title>
+      <img mat-card-image src="{{data.directorImage}}" alt="{{data.name}}" />
+      <mat-card-content>
+          <p>Born: {{ data.birth && formatDate( data.birth ) }}, {{data.birthplace}}</p>
+          <p>{{data.bio}}</p>
+      </mat-card-content>
+  </mat-card>
 </div>

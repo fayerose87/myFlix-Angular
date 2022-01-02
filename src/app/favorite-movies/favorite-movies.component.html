@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
-<div class="movies-wrapper">
-    <mat-card class="card" *ngFor="let movie of movies" style="flex: 1 1 auto;">
+<div class="favorites-wrapper">
+    <mat-card class="card" *ngFor="let movie of favorites" style="flex: 1 1 auto;">
         <img src="{{movie.ImagePath}}" alt="{{movie.Title}}" (click)="openSynopsis(movie.Title, movie.Description)" />
         <mat-card-title (click)="openSynopsis(movie.Title, movie.Description)">{{movie.Title}}</mat-card-title>
         <mat-card-actions>
-            <a (click)="openGenre(movie.Genre.Name, movie.Genre.Description)">
+            <a [routerLink]="" (click)="openGenre(movie.Genre.Name, movie.Genre.Description)">
                 {{movie.Genre.Name}}
             </a>
             <p>
-                <a (click)="openDirector(movie.Director.Name, movie.Director.Bio, movie.Director.Birth, movie.Director.Birthplace, movie.Director.DirectorImage)">
+                <a [routerLink]="" (click)="openDirector(movie.Director.Name, movie.Director.Bio, movie.Director.Birth, movie.Director.Birthplace, movie.Director.DirectorImage)">
                     {{movie.Director.Name}}
                 </a>
                 <mat-icon *ngIf="!setFavStatus(movie._id)" (click)="addFavoriteMovie(movie._id, movie.Title)" class="favorite-button">

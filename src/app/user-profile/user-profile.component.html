@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="profile-wrapper">
+    <h1>My Profile</h1>
+    <p><b>Username</b>: {{ user.Username }}</p>
+    <p><b>Password</b>: ******</p>
+    <p><b>Email</b>: {{ user.Email }}</p>
+    <p><b>Date of Birth</b>: {{ user.Birthday && formatDate( user.Birthday ) }}</p>
+    <div class="actions">
+        <button mat-raised-button (click)="openEditProfileDialog()" class="edit-btn">
+            Edit Profile
+        </button>
+    </div>
+    >
+    <a class="delete-btn" (click)="deleteUser()"> Delete Account</a>
+</div>

@@ -1,4 +1,7 @@
-<div>
+<div class="genre-wrapper">
+  <button class="close" mat-button color="dark" [mat-dialog-close]="true">
+      <mat-icon class="close">close</mat-icon>
+  </button>
   <h1>{{data.name}}</h1>
   <mat-card-content> {{data.description}} </mat-card-content>
 </div>

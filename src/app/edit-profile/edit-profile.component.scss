@@ -1,0 +1,17 @@
+a {
+	color: #249ad2;
+	cursor: pointer;
+	text-align: center;
+}
+
+h1,
+p {
+	text-align: center;
+}
+
+.submit-btn {
+	background-color: #1e81b0;
+	&:hover {
+		background-color: #249ad2;
+	}
+}

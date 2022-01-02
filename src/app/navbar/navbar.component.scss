@@ -1,0 +1,42 @@
+#logo {
+	padding-top: 20px;
+	padding-left: 40px;
+	cursor: pointer;
+	width: 180px;
+}
+
+.valign-center {
+	display: inline-flex;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+a:hover,
+a:active {
+	color: #1e81b0;
+}
+
+.menu-items {
+	margin: 0;
+	padding-right: 40px;
+	list-style: none;
+}
+
+mat-toolbar {
+	background-color: black;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 999;
+	height: 90px;
+}
+
+.menu {
+	font-size: 38px;
+}
